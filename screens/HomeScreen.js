@@ -1,27 +1,29 @@
 import { View, Text, Image, ScrollView } from "react-native";
 import React from "react";
 import Pins from "../components/Pins";
+import dummyData from "../dummyData";
 
 const HomeScreen = () => {
   return (
     <ScrollView>
-      <View
-        style={{
-          flex: 1,
-          alignItems: "center",
-          justifyContent: "center",
-          padding: 10,
-        }}
-      >
+      <View style={{ flexDirection: "row", padding: 10 }}>
         {/* Pins */}
-        <Pins
-          title="okay"
-          image="https://threadcurve.com/wp-content/uploads/2020/12/midi-dress-apr092021_1.jpg"
-        />
-        <Pins
-          title="Yeah"
-          image="https://notjustdev-dummy.s3.us-east-2.amazonaws.com/pinterest/7.jpeg"
-        />
+        {/* 1st colummn */}
+        <View style={{ flex: 1 }}>
+          {dummyData
+            .filter((item, index) => index % 2 === 0)
+            .map((pin) => (
+              <Pins pin={pin} key={pin.id} />
+            ))}
+        </View>
+        {/* 2nd column */}
+        <View style={{ flex: 1 }}>
+          {dummyData
+            .filter((item, index) => index % 2 === 1)
+            .map((pin) => (
+              <Pins pin={pin} key={pin.id} />
+            ))}
+        </View>
       </View>
     </ScrollView>
   );

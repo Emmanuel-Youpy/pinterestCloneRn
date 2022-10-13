@@ -1,12 +1,18 @@
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import React, { useEffect, useState } from "react";
 import { Feather } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const Pins = (props) => {
-  const { image, title } = props.pin;
+  const { image, title, id } = props.pin;
   const [ratio, setRatio] = useState(1);
+  const navigation = useNavigation();
 
   const onLike = () => {};
+
+  const goToPinPage = () => {
+    navigation.navigate("Pin", { id });
+  };
 
   useEffect(() => {
     if (image) {
@@ -15,7 +21,10 @@ const Pins = (props) => {
   }, [image]);
 
   return (
-    <View style={{ width: "100%", padding: 4 }}>
+    <TouchableOpacity
+      onPress={goToPinPage}
+      style={{ width: "100%", padding: 4 }}
+    >
       <View>
         <Image
           source={{
@@ -49,7 +58,7 @@ const Pins = (props) => {
       >
         {title}
       </Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

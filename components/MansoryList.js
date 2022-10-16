@@ -13,12 +13,12 @@ const MansoryList = ({ dummyData }) => {
 
   const width = useWindowDimensions().width;
 
-  console.log(width);
+  //   console.log(width);
   return (
     <ScrollView>
       <View style={{ flexDirection: "row", padding: 10 }}>
         {Array.from(Array(numColumns)).map((col, colIndex) => (
-          <View style={{ flex: 1 }}>
+          <View style={{ flex: 1 }} key={`column_${colIndex}`}>
             {dummyData
               .filter((item, index) => index % numColumns === colIndex)
               .map((pin) => (

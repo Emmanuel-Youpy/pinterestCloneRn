@@ -1,27 +1,32 @@
-import { View, Text, Dimensions, ImageBackground } from "react-native";
+import {
+  View,
+  Text,
+  Dimensions,
+  ImageBackground,
+  TouchableOpacity,
+} from "react-native";
 import React from "react";
 
 const windowHeight = Dimensions.get("window").height;
 
-const SignUpScreen = () => {
-  function renderHeader() {
-    return (
-      <View style={{ height: windowHeight > 700 ? "65%" : "60%" }}>
-        <ImageBackground
-          source={{
-            uri: "https://i.pinimg.com/736x/d8/09/a6/d809a6ecf9292e352d635b0481bb3070.jpg",
-          }}
-          style={{ flex: 1, justifyContent: "flex-end" }}
-          resizeMode="cover"
-        ></ImageBackground>
-      </View>
-    );
-  }
+const SignUpScreen = ({ navigation }) => {
   return (
-    <View style={{ flex: 1, backgroundColor: "black" }}>
-      <Text style={{ color: "white" }}>SignUpScreen</Text>
+    <View
+      style={{
+        flexDirection: "row",
+        alignContent: "center",
+        justifyContent: "center",
+        paddingTop: 40,
+      }}
+    >
+      <View>
+        <Text style={{ fontSize: 28 }}>SignUpScreen</Text>
+        <Text>Find new ideas to try</Text>
+        <TouchableOpacity onPress={() => navigation.navigate("SignIn")}>
+          <Text>SIgin In</Text>
+        </TouchableOpacity>
+      </View>
       {/* Header */}
-      {renderHeader()}
     </View>
   );
 };

@@ -49,7 +49,10 @@ const styles = StyleSheet.create({
   container_PRIMARY: {
     backgroundColor: "red",
   },
-  container_TERITARY: { borderWidth: 3, borderColor: "green" },
+  txt_SECONDARY: {
+    color: "gray",
+  },
+  container_TERITARY: { borderWidth: 1, borderColor: "red" },
   txt: {
     color: "white",
   },

@@ -26,31 +26,30 @@ const SignInScreen = ({ navigation }) => {
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
-      <View style={{ paddingTop: 40, alignItems: "center", padding: 20 }}>
+      <View style={{ paddingTop: 90, alignItems: "center", padding: 20 }}>
         <Image
           source={{
-            uri: "https://static-prod.adweek.com/wp-content/uploads/2021/04/Pinterest-Logo.png",
+            uri: "https://i.pinimg.com/originals/98/a6/de/98a6de54dc27442a3c8375ab303c6e42.jpg",
           }}
           style={{
             marginTop: 20,
-            width: "70%",
-            height: 100,
+            width: 70,
+            height: 70,
             maxWidth: 300,
             maxHeight: 200,
           }}
         />
-        <View
-          // style={{
-          //   backgroundColor: "white",
-          //   width: "100%",
-          //   borderColor: "lightblue",
-          //   borderWidth: 1,
-          //   borderRadius: 5,
-          //   padding: 10,
-          //   marginVertical: 5,
-          // }}
-          style={{ alignItems: "center", width: "100%" }}
-        >
+        <View style={{ padding: 15 }}>
+          <Text
+            style={{ fontSize: "30", fontWeight: "400", textAlign: "center" }}
+          >
+            Log in to see more
+          </Text>
+          <Text style={{ textAlign: "center" }}>
+            Access Pinterest best ideas
+          </Text>
+        </View>
+        <View style={{ alignItems: "center", width: "100%" }}>
           <CustomInput placeholder="Email" value={email} setValue={setEmail} />
           <CustomInput
             placeholder="Password"
@@ -58,9 +57,10 @@ const SignInScreen = ({ navigation }) => {
             setValue={setPassword}
             secureTextEntry={true}
           />
-          {/* <CustomInput placeholder="Age" value={age} setValue={setAge} /> */}
-          <CustomButton text="button" onPress={btnwarn} />
-          {/* <CustomButton text="Socials" onPress={btnwarn} type="TERITARY" /> */}
+          <CustomButton
+            text="Sign In"
+            onPress={() => navigation.navigate("Tabs")}
+          />
           <Text>Or</Text>
           <CustomButton
             text="Continue with Facebook"
@@ -101,6 +101,12 @@ const SignInScreen = ({ navigation }) => {
                 <Text> Sign Up</Text>
               </TouchableOpacity>
             </View>
+            <Text
+              onPress={() => navigation.navigate("ForgotPasswordScreen")}
+              style={{ paddingTop: 20 }}
+            >
+              Forgot your password?
+            </Text>
           </View>
         </View>
       </View>

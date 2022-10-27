@@ -26,29 +26,38 @@ const SignInScreen = ({ navigation }) => {
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
-      <View style={{ paddingTop: 40, alignItems: "center", padding: 20 }}>
+      <View style={{ paddingTop: 90, alignItems: "center" }}>
         <Image
           source={{
-            uri: "https://static-prod.adweek.com/wp-content/uploads/2021/04/Pinterest-Logo.png",
+            uri: "https://i.pinimg.com/originals/98/a6/de/98a6de54dc27442a3c8375ab303c6e42.jpg",
           }}
           style={{
             marginTop: 20,
-            width: "70%",
-            height: 100,
+            width: 70,
+            height: 70,
             maxWidth: 300,
             maxHeight: 200,
           }}
         />
+        <View style={{ padding: 15 }}>
+          <Text style={{ fontSize: "30", fontWeight: "400" }}>
+            Welcome to Pinterest
+          </Text>
+          <Text style={{ textAlign: "center" }}>Find new ideas to try</Text>
+        </View>
         <View style={{ alignItems: "center", width: "100%" }}>
           <CustomInput placeholder="Email" value={email} setValue={setEmail} />
           <CustomInput
-            placeholder="Password"
+            placeholder="Create a password"
             value={password}
             setValue={setPassword}
             secureTextEntry={true}
           />
           <CustomInput placeholder="Age" value={age} setValue={setAge} />
-          <CustomButton text="button" onPress={btnwarn} />
+          <CustomButton
+            text="Continue"
+            onPress={() => navigation.navigate("ConfirmEmailScreen")}
+          />
           {/* <CustomButton text="Socials" onPress={btnwarn} type="TERITARY" /> */}
           <Text>Or</Text>
           <CustomButton
@@ -84,7 +93,7 @@ const SignInScreen = ({ navigation }) => {
                 Already a menber?
               </Text>
               <TouchableOpacity
-                onPress={() => navigation.navigate("SignUp")}
+                onPress={() => navigation.navigate("SignIn")}
                 style={{ textAlign: "center" }}
               >
                 <Text> Log In</Text>

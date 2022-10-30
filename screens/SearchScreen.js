@@ -1,7 +1,12 @@
-import { View, Text, Animated, Dimensions } from "react-native";
+import { View, Text, Animated, Dimensions, ScrollView } from "react-native";
 import React from "react";
 import searchDummy from "../constants/searchDummy";
 import Walkthrough1 from "./walkthroughList/Walkthrough1";
+import Walkthrough2 from "./walkthroughList/Walkthrough2";
+import Walkthrough3 from "./walkthroughList/Walkthrough3";
+import Walkthrough4 from "./walkthroughList/Walkthrough4";
+import Walkthrough5 from "./walkthroughList/Walkthrough5";
+import CreatorsCard from "../components/CreatorsCard";
 
 const SearchScreen = () => {
   const scrollX = React.useRef(new Animated.Value(0)).current;
@@ -21,7 +26,7 @@ const SearchScreen = () => {
         {searchDummy.map((item, index) => {
           const dotColor = dotPosition.interpolate({
             inputRange: [index - 1, index, index + 1],
-            outputRange: ["yellow", "red", "yellow"],
+            outputRange: ["gray", "white", "gray"],
             extrapolate: "clamp",
           });
           return (
@@ -46,7 +51,7 @@ const SearchScreen = () => {
       <View
         style={{
           position: "absolute",
-          bottom: 0,
+          bottom: -140,
           left: 0,
           right: 0,
           height: height * 0.2,
@@ -62,55 +67,99 @@ const SearchScreen = () => {
   }
 
   return (
-    <View style={{}}>
-      <Animated.FlatList
-        data={searchDummy}
-        keyExtractor={(item) => item.id}
-        horizontal
-        snapToInterval={width}
-        decelerationRate="fast"
-        showsHorizontalScrollIndicator={false}
-        scrollEventThrottle={16}
-        onScroll={Animated.event(
-          [{ nativeEvent: { contentOffset: { x: scrollX } } }],
-          {
-            useNativeDriver: false,
-          }
-        )}
-        renderItem={({ item, index }) => {
-          return (
-            <View style={{ width: width, justifyContent: "center" }}>
-              {/* walkthrough images */}
-              <View style={{ justifyContent: "center" }}>
-                {index === 0 && <Walkthrough1 />}
-              </View>
-              {/* Title and Description */}
-              <View
-                style={{
-                  //   height: height * 0.35,
-                  alignItems: "center",
-                  justifyContent: "center",
-                  paddingHorizontal: 24,
-                  backgroundColor: "black",
-                  marginVertical: 100,
-                }}
-              >
-                <Text style={{ color: "white", textAlign: "center" }}>
-                  {item.name}
-                </Text>
-                <Text
-                  style={{ marginTop: 10, textAlign: "center", color: "red" }}
+    <>
+      <View style={{ justifyContent: "center" }}>
+        <Animated.FlatList
+          data={searchDummy}
+          keyExtractor={(item) => item.id}
+          horizontal
+          snapToInterval={width}
+          decelerationRate="fast"
+          showsHorizontalScrollIndicator={false}
+          scrollEventThrottle={16}
+          onScroll={Animated.event(
+            [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+            {
+              useNativeDriver: false,
+            }
+          )}
+          renderItem={({ item, index }) => {
+            return (
+              <View style={{ width: width, justifyContent: "center" }}>
+                {/* walkthrough images */}
+                <View style={{ justifyContent: "center" }}>
+                  {index === 0 && <Walkthrough1 />}
+                  {index == 1 && <Walkthrough2 />}
+                  {index == 2 && <Walkthrough3 />}
+                  {index == 3 && <Walkthrough4 />}
+                  {index == 4 && <Walkthrough5 />}
+                </View>
+                {/* Title and Description */}
+                <View
+                  style={{
+                    //   height: height * 0.35,
+                    position: "absolute",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    paddingHorizontal: 24,
+                    top: 90,
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    //   backgroundColor: "black",
+                    marginTop: -80,
+                  }}
                 >
-                  {item.title}
-                </Text>
+                  <Text style={{ color: "white", textAlign: "center" }}>
+                    {item.title}
+                  </Text>
+                  <Text
+                    style={{
+                      marginTop: 10,
+                      textAlign: "center",
+                      color: "white",
+                      fontSize: 20,
+                      fontWeight: "bold",
+                    }}
+                  >
+                    {item.desc}
+                  </Text>
+                </View>
               </View>
-            </View>
-          );
+            );
+          }}
+        />
+        {renderFooter()}
+      </View>
+      {/* Creators card */}
+      <View
+        style={{
+          justifyContent: "center",
+          paddingTop: 10,
+          paddingLeft: 5,
         }}
-      />
-      {renderFooter()}
-      <Text style={{ color: "red" }}>NotificationScreen</Text>
-    </View>
+      >
+        <Text
+          style={{
+            textAlign: "center",
+            fontSize: 20,
+            fontWeight: "500",
+            padding: 10,
+          }}
+        >
+          Ideas from creators
+        </Text>
+        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+          <View style={{ display: "flex", flexDirection: "row" }}>
+            <CreatorsCard duration="0:12" />
+            <CreatorsCard duration="1.13" />
+            <CreatorsCard duration="1:22" />
+            <CreatorsCard duration="0:28" />
+            <CreatorsCard duration="2:00" />
+          </View>
+        </ScrollView>
+      </View>
+    </>
   );
 };
 

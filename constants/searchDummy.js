@@ -1,28 +1,28 @@
 const walkthrough_txt = [
   {
     id: 0,
-    name: "Follow five fridays",
-    title: "Hallowen makeup look",
+    title: "Follow five fridays",
+    desc: "Hallowen makeup look",
   },
   {
     id: 1,
-    name: "Take a bit",
-    title: "Natural Chocolate day",
+    title: "Take a bit",
+    desc: "Natural Chocolate day",
   },
   {
     id: 2,
-    name: "Sliding into home",
-    title: "Cheers to the baseball championships",
+    title: "Sliding into home",
+    desc: "Cheers to the baseball championships",
   },
   {
     id: 3,
-    name: "Needle-free DIY",
-    title: "All about arm knitting",
+    title: "Needle-free DIY",
+    desc: "All about arm knitting",
   },
   {
     id: 4,
-    name: "Harrowing How-to's",
-    title: "Create the hunted house this year",
+    title: "Harrowing How-to's",
+    desc: "Create the hunted house this year",
   },
 ];
 

@@ -1,14 +1,14 @@
 import { View, Text, Image } from "react-native";
 import React from "react";
 
-const Walkthrough1 = () => {
+const Walkthrough5 = () => {
   return (
     <View
       style={{ alignItems: "center", height: 370, backgroundColor: "black" }}
     >
       <Image
         source={{
-          uri: "https://www.bhaktiphotos.com/wp-content/uploads/2021/07/Sivan-hd-Images-1080p.jpg",
+          uri: "https://images.immediate.co.uk/production/volatile/sites/3/2022/05/710261S6Ep1Hunted-S6-Fugitives-6ee30d1.jpg?quality=90&resize=620,413",
         }}
         style={{
           width: "100%",
@@ -17,9 +17,8 @@ const Walkthrough1 = () => {
           opacity: 0.5,
         }}
       />
-      <Text>Walkthrough1</Text>
     </View>
   );
 };
 
-export default Walkthrough1;
+export default Walkthrough5;

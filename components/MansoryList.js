@@ -1,6 +1,6 @@
 import { View, Text, ScrollView, useWindowDimensions } from "react-native";
 import React, { useState } from "react";
-import dummyData from "../dummyData";
+import dummyData from "../constants/dummyData";
 import Pins from "./Pins";
 
 const MansoryList = ({ dummyData }) => {

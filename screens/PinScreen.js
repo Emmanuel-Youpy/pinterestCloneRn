@@ -8,10 +8,10 @@ import {
   TouchableOpacity,
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import dummyData from "../dummyData";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import dummyData from "../constants/dummyData";
 
 const PinScreen = ({ navigation }) => {
   const [ratio, setRatio] = useState(1);

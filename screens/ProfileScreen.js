@@ -1,7 +1,7 @@
 import { View, Text, Image, ScrollView } from "react-native";
 import React from "react";
 import MansoryList from "../components/MansoryList";
-import dummyData from "../dummyData";
+import dummyData from "../constants/dummyData";
 import { Entypo } from "@expo/vector-icons";
 
 const ProfileScreen = () => {

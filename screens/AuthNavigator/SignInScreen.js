@@ -18,7 +18,6 @@ const windowHeight = Dimensions.get("window").height;
 const SignInScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [age, setAge] = useState();
 
   const btnwarn = () => {
     console.warn("yes");

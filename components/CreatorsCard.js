@@ -1,7 +1,7 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 
-const CreatorsCard = ({ image, duration, profilePic }) => {
+const CreatorsCard = ({ duration, onPress, image, profileImage }) => {
   return (
     <View
       style={{
@@ -10,10 +10,11 @@ const CreatorsCard = ({ image, duration, profilePic }) => {
         paddingRight: 5,
       }}
     >
-      <TouchableOpacity style={{}}>
+      <TouchableOpacity style={{}} onPress={onPress}>
         <Image
           source={{
-            uri: "https://health.clevelandclinic.org/wp-content/uploads/sites/3/2015/03/chocolateWhiteDark-454384771-770x533-1.jpg",
+            uri: image,
+            //  "https://health.clevelandclinic.org/wp-content/uploads/sites/3/2015/03/chocolateWhiteDark-454384771-770x533-1.jpg",
           }}
           style={{
             width: "100%",
@@ -38,7 +39,8 @@ const CreatorsCard = ({ image, duration, profilePic }) => {
         <View style={{ position: "absolute", bottom: 0, left: 50, right: 0 }}>
           <Image
             source={{
-              uri: "https://health.clevelandclinic.org/wp-content/uploads/sites/3/2015/03/chocolateWhiteDark-454384771-770x533-1.jpg",
+              uri: profileImage,
+              //   "https://health.clevelandclinic.org/wp-content/uploads/sites/3/2015/03/chocolateWhiteDark-454384771-770x533-1.jpg",
             }}
             style={{
               width: 50,

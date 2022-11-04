@@ -7,6 +7,10 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ConfirmEmailScreen from "./ConfirmEmailScreen";
 import ForgotPasswordScreen from "./ForgotPasswordScreen";
 import ResetPasswordScreen from "./ResetPasswordScreen";
+import TabScreen from "../TabScreen";
+import ProfileScreen from "../ProfileScreen";
+import PopularPins from "../../components/PopularPins";
+import CreatorProfileScreen from "../CreatorProfileScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -36,6 +40,11 @@ const AuthStackNavigator = () => {
       <Stack.Screen
         name="ResetPasswordScreen"
         component={ResetPasswordScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Creator"
+        component={CreatorProfileScreen}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

@@ -5,9 +5,9 @@ import HomeScreen from "./HomeScreen";
 import ProfileScreen from "./ProfileScreen";
 import { Ionicons } from "@expo/vector-icons";
 import CreatePinScreen from "./CreatePinScreen";
-import { FontAwesome } from "@expo/vector-icons";
 import NotificationScreen from "./NotificationScreen";
 import SearchScreen from "./SearchScreen";
+import CreatorProfileScreen from "./CreatorProfileScreen";
 
 const Tab = createBottomTabNavigator();
 

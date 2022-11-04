@@ -1,3 +1,5 @@
+import { Image } from "react-native";
+
 const walkthrough_txt = [
   {
     id: 0,

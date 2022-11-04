@@ -1,4 +1,11 @@
-import { View, Text, Animated, Dimensions, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  Animated,
+  Dimensions,
+  ScrollView,
+  Image,
+} from "react-native";
 import React from "react";
 import searchDummy from "../constants/searchDummy";
 import Walkthrough1 from "./walkthroughList/Walkthrough1";
@@ -7,8 +14,9 @@ import Walkthrough3 from "./walkthroughList/Walkthrough3";
 import Walkthrough4 from "./walkthroughList/Walkthrough4";
 import Walkthrough5 from "./walkthroughList/Walkthrough5";
 import CreatorsCard from "../components/CreatorsCard";
+import PopularPins from "../components/PopularPins";
 
-const SearchScreen = () => {
+const SearchScreen = ({ navigation }) => {
   const scrollX = React.useRef(new Animated.Value(0)).current;
   const { width, height } = Dimensions.get("window");
 
@@ -67,7 +75,7 @@ const SearchScreen = () => {
   }
 
   return (
-    <>
+    <ScrollView showsVerticalScrollIndicator={false}>
       <View style={{ justifyContent: "center" }}>
         <Animated.FlatList
           data={searchDummy}
@@ -142,24 +150,97 @@ const SearchScreen = () => {
         <Text
           style={{
             textAlign: "center",
-            fontSize: 20,
-            fontWeight: "500",
+            fontSize: 18,
+            fontWeight: "600",
             padding: 10,
           }}
         >
           Ideas from creators
         </Text>
+
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
           <View style={{ display: "flex", flexDirection: "row" }}>
-            <CreatorsCard duration="0:12" />
-            <CreatorsCard duration="1.13" />
-            <CreatorsCard duration="1:22" />
-            <CreatorsCard duration="0:28" />
-            <CreatorsCard duration="2:00" />
+            <CreatorsCard
+              duration="0:12"
+              image="https://health.clevelandclinic.org/wp-content/uploads/sites/3/2015/03/chocolateWhiteDark-454384771-770x533-1.jpg"
+              profileImage="https://health.clevelandclinic.org/wp-content/uploads/sites/3/2015/03/chocolateWhiteDark-454384771-770x533-1.jpg"
+              onPress={() => navigation.navigate("Creator")}
+            />
+            <CreatorsCard
+              duration="0:12"
+              image="https://health.clevelandclinic.org/wp-content/uploads/sites/3/2015/03/chocolateWhiteDark-454384771-770x533-1.jpg"
+              profileImage="https://health.clevelandclinic.org/wp-content/uploads/sites/3/2015/03/chocolateWhiteDark-454384771-770x533-1.jpg"
+              onPress={() => navigation.navigate("Creator")}
+            />
+            <CreatorsCard
+              duration="0:12"
+              image="https://health.clevelandclinic.org/wp-content/uploads/sites/3/2015/03/chocolateWhiteDark-454384771-770x533-1.jpg"
+              profileImage="https://health.clevelandclinic.org/wp-content/uploads/sites/3/2015/03/chocolateWhiteDark-454384771-770x533-1.jpg"
+              onPress={() => navigation.navigate("Creator")}
+            />
+            <CreatorsCard
+              duration="0:12"
+              image="https://health.clevelandclinic.org/wp-content/uploads/sites/3/2015/03/chocolateWhiteDark-454384771-770x533-1.jpg"
+              profileImage="https://health.clevelandclinic.org/wp-content/uploads/sites/3/2015/03/chocolateWhiteDark-454384771-770x533-1.jpg"
+              onPress={() => navigation.navigate("Creator")}
+            />
+            <CreatorsCard
+              duration="0:12"
+              image="https://health.clevelandclinic.org/wp-content/uploads/sites/3/2015/03/chocolateWhiteDark-454384771-770x533-1.jpg"
+              profileImage="https://health.clevelandclinic.org/wp-content/uploads/sites/3/2015/03/chocolateWhiteDark-454384771-770x533-1.jpg"
+              onPress={() => navigation.navigate("Creator")}
+            />
           </View>
         </ScrollView>
       </View>
-    </>
+      <Text
+        style={{
+          textAlign: "center",
+          paddingBottom: 10,
+          fontSize: 18,
+          fontWeight: "600",
+        }}
+      >
+        Popular on Pinterest
+      </Text>
+      <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
+        <PopularPins
+          title="Saga"
+          image="https://i2-prod.walesonline.co.uk/incoming/article24023657.ece/ALTERNATES/s615/1_HUNTED_HQ_Hunters-Celeb-2021_002njpgfrom-left.jpg"
+          onPress={() => navigation.navigate("Creator")}
+        />
+        <PopularPins
+          title="Tattoos "
+          image="https://w7.pngwing.com/pngs/627/952/png-transparent-tattos-thumbnail.png"
+          onPress={() => navigation.navigate("Home")}
+        />
+        <PopularPins
+          title="Piercing ideas"
+          image="https://assets.teenvogue.com/photos/56f409fc060ad49149eebbf5/1:1/w_1995,h_1995,c_limit/tattoos-piercings.jpg"
+          onPress={() => navigation.navigate("Home")}
+        />
+        <PopularPins
+          title="Nature"
+          image="https://images.unsplash.com/photo-1610878180933-123728745d22?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FuYWRhJTIwbmF0dXJlfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
+          onPress={() => navigation.navigate("Home")}
+        />
+        <PopularPins
+          title="Fashion"
+          image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgIu7WZOlA9vrbeVZSwxXeNS9f0gDM1wFmTg&usqp=CAU"
+          onPress={() => navigation.navigate("Home")}
+        />
+        <PopularPins
+          title="Sport"
+          image="https://ec.europa.eu/eurostat/documents/6921402/9104237/Shutterstock_Lisa_Kolbasa.png/f988f8b6-4138-4a91-9761-885bacab0ce2?t=1533725002000"
+          onPress={() => navigation.navigate("Home")}
+        />
+        <PopularPins
+          title="Sky Diving"
+          image="https://learnenglishteens.britishcouncil.org/sites/teens/files/styles/article/public/rs7639_thinkstockphotos-495468770-low.jpg?itok=PYg2qpzA"
+          onPress={() => navigation.navigate("Home")}
+        />
+      </View>
+    </ScrollView>
   );
 };
 

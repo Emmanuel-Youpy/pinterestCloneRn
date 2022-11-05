@@ -162,33 +162,28 @@ const SearchScreen = ({ navigation }) => {
           <View style={{ display: "flex", flexDirection: "row" }}>
             <CreatorsCard
               duration="0:12"
-              image="https://health.clevelandclinic.org/wp-content/uploads/sites/3/2015/03/chocolateWhiteDark-454384771-770x533-1.jpg"
-              profileImage="https://health.clevelandclinic.org/wp-content/uploads/sites/3/2015/03/chocolateWhiteDark-454384771-770x533-1.jpg"
-              onPress={() => navigation.navigate("Creator")}
+              image="https://images.unsplash.com/photo-1666951195443-1a983a5a62d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
+              profileImage="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjJd36H7CI2WoJusFYFGlmhfbAw4TPwF1HL5zGhlQ9&s"
+            />
+            <CreatorsCard
+              duration="0:44"
+              image="https://images.unsplash.com/photo-1667026950732-fae2c3d2c776?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDEwfENEd3V3WEpBYkV3fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+              profileImage="https://i.pinimg.com/736x/25/78/61/25786134576ce0344893b33a051160b1.jpg"
             />
             <CreatorsCard
               duration="0:12"
-              image="https://health.clevelandclinic.org/wp-content/uploads/sites/3/2015/03/chocolateWhiteDark-454384771-770x533-1.jpg"
-              profileImage="https://health.clevelandclinic.org/wp-content/uploads/sites/3/2015/03/chocolateWhiteDark-454384771-770x533-1.jpg"
-              onPress={() => navigation.navigate("Creator")}
+              image="https://images.unsplash.com/photo-1666914903444-484384691eff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+              profileImage="https://wallpaper.dog/large/20533903.jpg"
             />
             <CreatorsCard
-              duration="0:12"
-              image="https://health.clevelandclinic.org/wp-content/uploads/sites/3/2015/03/chocolateWhiteDark-454384771-770x533-1.jpg"
-              profileImage="https://health.clevelandclinic.org/wp-content/uploads/sites/3/2015/03/chocolateWhiteDark-454384771-770x533-1.jpg"
-              onPress={() => navigation.navigate("Creator")}
+              duration="0:56"
+              image="https://images.unsplash.com/photo-1656702773363-989dec5bdd98?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80"
+              profileImage="https://i.redd.it/qzbebva44ry21.jpg"
             />
             <CreatorsCard
-              duration="0:12"
-              image="https://health.clevelandclinic.org/wp-content/uploads/sites/3/2015/03/chocolateWhiteDark-454384771-770x533-1.jpg"
-              profileImage="https://health.clevelandclinic.org/wp-content/uploads/sites/3/2015/03/chocolateWhiteDark-454384771-770x533-1.jpg"
-              onPress={() => navigation.navigate("Creator")}
-            />
-            <CreatorsCard
-              duration="0:12"
-              image="https://health.clevelandclinic.org/wp-content/uploads/sites/3/2015/03/chocolateWhiteDark-454384771-770x533-1.jpg"
-              profileImage="https://health.clevelandclinic.org/wp-content/uploads/sites/3/2015/03/chocolateWhiteDark-454384771-770x533-1.jpg"
-              onPress={() => navigation.navigate("Creator")}
+              duration="1:02"
+              image="https://images.unsplash.com/photo-1656381620321-bddff61435c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=415&q=80"
+              profileImage="https://wallpaperaccess.com/full/2213475.jpg"
             />
           </View>
         </ScrollView>
@@ -207,7 +202,7 @@ const SearchScreen = ({ navigation }) => {
         <PopularPins
           title="Saga"
           image="https://i2-prod.walesonline.co.uk/incoming/article24023657.ece/ALTERNATES/s615/1_HUNTED_HQ_Hunters-Celeb-2021_002njpgfrom-left.jpg"
-          onPress={() => navigation.navigate("Creator")}
+          onPress={() => navigation.navigate("PopularView")}
         />
         <PopularPins
           title="Tattoos "

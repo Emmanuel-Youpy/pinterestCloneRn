@@ -1,7 +1,11 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+
 import React from "react";
 
 const CreatorsCard = ({ duration, onPress, image, profileImage }) => {
+  const navigation = useNavigation();
+
   return (
     <View
       style={{
@@ -10,11 +14,18 @@ const CreatorsCard = ({ duration, onPress, image, profileImage }) => {
         paddingRight: 5,
       }}
     >
-      <TouchableOpacity style={{}} onPress={onPress}>
+      <TouchableOpacity
+        style={{}}
+        onPress={() =>
+          navigation.navigate("Creator", {
+            imagePass: image,
+            imagePass2: profileImage,
+          })
+        }
+      >
         <Image
           source={{
             uri: image,
-            //  "https://health.clevelandclinic.org/wp-content/uploads/sites/3/2015/03/chocolateWhiteDark-454384771-770x533-1.jpg",
           }}
           style={{
             width: "100%",
@@ -40,7 +51,6 @@ const CreatorsCard = ({ duration, onPress, image, profileImage }) => {
           <Image
             source={{
               uri: profileImage,
-              //   "https://health.clevelandclinic.org/wp-content/uploads/sites/3/2015/03/chocolateWhiteDark-454384771-770x533-1.jpg",
             }}
             style={{
               width: 50,

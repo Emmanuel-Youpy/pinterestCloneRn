@@ -42,11 +42,11 @@ const AuthStackNavigator = () => {
         component={ResetPasswordScreen}
         options={{ headerShown: false }}
       />
-      <Stack.Screen
+      {/* <Stack.Screen
         name="Creator"
         component={CreatorProfileScreen}
         options={{ headerShown: false }}
-      />
+      /> */}
     </Stack.Navigator>
   );
 };

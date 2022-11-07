@@ -42,15 +42,31 @@ const TabScreen = () => {
         tabBarInactiveTintColor: "gray",
       })}
     >
-      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{ headerShown: false }}
+      />
       <Tab.Screen
         name="Search"
         component={SearchScreen}
         options={{ headerShown: false }}
       />
-      <Tab.Screen name="CreatePin" component={CreatePinScreen} />
-      <Tab.Screen name="Notification" component={NotificationScreen} />
-      <Tab.Screen name="Profile" component={ProfileScreen} />
+      <Tab.Screen
+        name="CreatePin"
+        component={CreatePinScreen}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name="Notification"
+        component={NotificationScreen}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{ headerShown: false }}
+      />
     </Tab.Navigator>
   );
 };

@@ -8,6 +8,7 @@ import { NhostApolloProvider } from "@nhost/react-apollo";
 import AuthStackNavigator from "./screens/AuthNavigator/AuthStackNavigator";
 import CreatorProfileScreen from "./screens/CreatorProfileScreen";
 import PopularViewScreen from "./screens/PopularViewScreen";
+import PinScreen2 from "./screens/PinScreen2";
 
 const nhost = new NhostClient({
   subdomain: "hckqnkyordkdhgfhetwm",
@@ -35,6 +36,11 @@ export default function App() {
             <Stack.Screen
               name="Pin"
               component={PinScreen}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Pin2"
+              component={PinScreen2}
               options={{ headerShown: false }}
             />
             <Stack.Screen

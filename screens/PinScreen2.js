@@ -12,8 +12,9 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import dummyData from "../constants/dummyData";
+import dummyData2 from "../constants/dummyData2";
 
-const PinScreen = ({ navigation }) => {
+const PinScreen2 = ({ navigation }) => {
   const [ratio, setRatio] = useState(1);
 
   useEffect(() => {
@@ -31,7 +32,7 @@ const PinScreen = ({ navigation }) => {
 
   // console.log(pinId);
 
-  const pin = dummyData.find((p) => p.id === pinId);
+  const pin = dummyData2.find((p) => p.id === pinId);
   if (!pin) {
     return <Text>Pin not found</Text>;
   }
@@ -61,17 +62,6 @@ const PinScreen = ({ navigation }) => {
         >
           {pin?.title}
         </Text>
-        {/* <View
-          style={{
-            justifyContent: "center",
-            alignContent: "center",
-            backgroundColor: "red",
-          }}
-        >
-          <Text style={{ alignItems: "center", justifyContent: "center" }}>
-            CNtd
-          </Text>
-        </View> */}
         <TouchableOpacity
           onPress={navigation.goBack}
           style={{ position: "absolute", left: 20, top: 30 }}
@@ -83,7 +73,7 @@ const PinScreen = ({ navigation }) => {
   );
 };
 
-export default PinScreen;
+export default PinScreen2;
 
 const styles = StyleSheet.create({
   img: {

@@ -9,7 +9,28 @@ const HomeScreen = () => {
   const user = useUserData();
   // console.log(user);
 
-  return <MansoryList dummyData={dummyData} />;
+  return (
+    <View style={{ paddingTop: 40 }}>
+      <View
+        style={{
+          justifyContent: "center",
+          alignItems: "center",
+          padding: 5,
+        }}
+      >
+        <View
+          style={{ backgroundColor: "black", padding: 15, borderRadius: 30 }}
+        >
+          <Text
+            style={{ textAlign: "center", fontWeight: "bold", color: "white" }}
+          >
+            For you
+          </Text>
+        </View>
+      </View>
+      <MansoryList dummyData={dummyData} />
+    </View>
+  );
 };
 
 export default HomeScreen;

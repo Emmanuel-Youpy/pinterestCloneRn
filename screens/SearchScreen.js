@@ -207,32 +207,32 @@ const SearchScreen = ({ navigation }) => {
         <PopularPins
           title="Tattoos "
           image="https://w7.pngwing.com/pngs/627/952/png-transparent-tattos-thumbnail.png"
-          onPress={() => navigation.navigate("Home")}
+          onPress={() => navigation.navigate("PopularView")}
         />
         <PopularPins
           title="Piercing ideas"
           image="https://assets.teenvogue.com/photos/56f409fc060ad49149eebbf5/1:1/w_1995,h_1995,c_limit/tattoos-piercings.jpg"
-          onPress={() => navigation.navigate("Home")}
+          onPress={() => navigation.navigate("PopularView")}
         />
         <PopularPins
           title="Nature"
           image="https://images.unsplash.com/photo-1610878180933-123728745d22?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FuYWRhJTIwbmF0dXJlfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
-          onPress={() => navigation.navigate("Home")}
+          onPress={() => navigation.navigate("PopularView")}
         />
         <PopularPins
           title="Fashion"
           image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgIu7WZOlA9vrbeVZSwxXeNS9f0gDM1wFmTg&usqp=CAU"
-          onPress={() => navigation.navigate("Home")}
+          onPress={() => navigation.navigate("PopularView")}
         />
         <PopularPins
           title="Sport"
           image="https://ec.europa.eu/eurostat/documents/6921402/9104237/Shutterstock_Lisa_Kolbasa.png/f988f8b6-4138-4a91-9761-885bacab0ce2?t=1533725002000"
-          onPress={() => navigation.navigate("Home")}
+          onPress={() => navigation.navigate("PopularView")}
         />
         <PopularPins
           title="Sky Diving"
           image="https://learnenglishteens.britishcouncil.org/sites/teens/files/styles/article/public/rs7639_thinkstockphotos-495468770-low.jpg?itok=PYg2qpzA"
-          onPress={() => navigation.navigate("Home")}
+          onPress={() => navigation.navigate("PopularView")}
         />
       </View>
     </ScrollView>

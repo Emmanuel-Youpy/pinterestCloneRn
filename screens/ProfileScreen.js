@@ -7,7 +7,7 @@ import { Entypo } from "@expo/vector-icons";
 const ProfileScreen = () => {
   return (
     <ScrollView style={{ width: "100%" }}>
-      <View style={{ alignItems: "center", marginTop: 10 }}>
+      <View style={{ alignItems: "center", marginTop: 10, paddingTop: 20 }}>
         <View
           style={{ flexDirection: "row", alignSelf: "flex-end", padding: 10 }}
         >
@@ -32,12 +32,12 @@ const ProfileScreen = () => {
             resizeMode: "cover",
           }}
           source={{
-            uri: "https://assets.ajio.com/medias/sys_master/root/20220617/4ASV/62ac820eaeb26921af36258b/-473Wx593H-464497062-pink-MODEL.jpg",
+            uri: "https://i.pinimg.com/736x/25/78/61/25786134576ce0344893b33a051160b1.jpg",
           }}
         />
         <Text style={{ fontSize: 20, fontWeight: "bold", margin: 10 }}>
           {" "}
-          ProfileScreen
+          Berlin Youpil
         </Text>
         <Text style={{ color: "#181818" }}>123 followers | 534 following</Text>
       </View>

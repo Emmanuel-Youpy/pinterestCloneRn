@@ -18,7 +18,7 @@ const CreatorProfileScreen = ({ route, navigation }) => {
   // const [duration, setDuration] = useState();
   // const { items } = route.params;
   const data = route.params;
-  console.log(route);
+  // console.log(route);
   return (
     <View>
       <ImageBackground

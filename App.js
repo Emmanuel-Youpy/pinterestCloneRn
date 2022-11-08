@@ -9,6 +9,7 @@ import AuthStackNavigator from "./screens/AuthNavigator/AuthStackNavigator";
 import CreatorProfileScreen from "./screens/CreatorProfileScreen";
 import PopularViewScreen from "./screens/PopularViewScreen";
 import PinScreen2 from "./screens/PinScreen2";
+import SettingsScreen from "./screens/SettingsScreen";
 
 const nhost = new NhostClient({
   subdomain: "hckqnkyordkdhgfhetwm",
@@ -51,6 +52,11 @@ export default function App() {
             <Stack.Screen
               name="PopularView"
               component={PopularViewScreen}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Settings"
+              component={SettingsScreen}
               options={{ headerShown: false }}
             />
           </Stack.Navigator>

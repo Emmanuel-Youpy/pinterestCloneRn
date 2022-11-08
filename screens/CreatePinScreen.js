@@ -1,8 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { Button, Image, View, Platform, TextInput } from "react-native";
+import {
+  Button,
+  Image,
+  View,
+  Platform,
+  TextInput,
+  TouchableOpacity,
+  Text,
+} from "react-native";
 import * as ImagePicker from "expo-image-picker";
+import { useNavigation } from "@react-navigation/native";
 
 export default function CreatePinScreen() {
+  const navigation = useNavigation();
+
   const [image, setImage] = useState(null);
   const [title, setTitle] = useState("");
 
@@ -14,8 +25,9 @@ export default function CreatePinScreen() {
       aspect: [4, 3],
       quality: 1,
     });
+    pickImage = "";
 
-    console.log(result);
+    // console.log(result);
 
     if (!result.cancelled) {
       setImage(result.uri);
@@ -32,7 +44,19 @@ export default function CreatePinScreen() {
         padding: 10,
       }}
     >
-      <Button title="Create your pin" onPress={pickImage} />
+      <TouchableOpacity
+        onPress={pickImage}
+        style={{
+          backgroundColor: "black",
+          padding: 15,
+          borderRadius: 30,
+          margin: 10,
+        }}
+      >
+        <Text style={{ color: "white", fontWeight: "bold" }}>
+          Create your pin
+        </Text>
+      </TouchableOpacity>
       {image && (
         <>
           <Image
@@ -40,10 +64,10 @@ export default function CreatePinScreen() {
             style={{ width: "100%", aspectRatio: 1, marginVertical: 10 }}
           />
           <TextInput
-            placeholder=":'Title...."
+            placeholder="Title...."
             style={{
               borderWidth: 1,
-              borderColor: "grey",
+              borderColor: "lightgrey",
               padding: 5,
               width: "100%",
               borderRadius: 5,
@@ -51,7 +75,22 @@ export default function CreatePinScreen() {
             value={title}
             onChangeText={setTitle}
           />
-          <Button title="Submit" onPress={onSubmit} />
+          <View
+            style={{
+              backgroundColor: "black",
+              padding: 15,
+              borderRadius: 30,
+              margin: 10,
+            }}
+          >
+            <TouchableOpacity
+              // onPress={onSubmit}
+              onPress={pickImage}
+              // {() => navigation.navigate("Home")}
+            >
+              <Text style={{ color: "white", fontWeight: "bold" }}>Submit</Text>
+            </TouchableOpacity>
+          </View>
         </>
       )}
     </View>

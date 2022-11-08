@@ -6,12 +6,14 @@ import {
   SafeAreaView,
   StatusBar,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import dummyData from "../constants/dummyData";
+import MansoryList2 from "../components/MansoryList2";
 
 const PinScreen = ({ navigation }) => {
   const [ratio, setRatio] = useState(1);
@@ -37,48 +39,73 @@ const PinScreen = ({ navigation }) => {
   }
   return (
     <SafeAreaView style={{ backgroundColor: "black" }}>
-      <StatusBar style="light" />
-      <View
-        style={{
-          backgroundColor: "white",
-          height: "100%",
-          borderTopRightRadius: 50,
-          borderTopLeftRadius: 50,
-        }}
-      >
-        <Image
-          source={{ uri: pin?.image }}
-          style={[styles.img, { aspectRatio: ratio }]}
-        />
-        <Text
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <StatusBar style="light" />
+        <View
           style={{
-            margin: 10,
-            fontSize: 24,
-            fontWeight: "600",
-            textAlign: "center",
-            lineHeight: 35,
+            backgroundColor: "white",
+            height: "100%",
+            borderTopRightRadius: 50,
+            borderTopLeftRadius: 50,
           }}
         >
-          {pin?.title}
-        </Text>
-        {/* <View
-          style={{
-            justifyContent: "center",
-            alignContent: "center",
-            backgroundColor: "red",
-          }}
-        >
-          <Text style={{ alignItems: "center", justifyContent: "center" }}>
-            CNtd
+          <Image
+            source={{ uri: pin?.image }}
+            style={[styles.img, { aspectRatio: ratio }]}
+          />
+          <Text
+            style={{
+              margin: 10,
+              fontSize: 24,
+              fontWeight: "600",
+              textAlign: "center",
+              lineHeight: 35,
+            }}
+          >
+            {pin?.title}
           </Text>
-        </View> */}
-        <TouchableOpacity
-          onPress={navigation.goBack}
-          style={{ position: "absolute", left: 20, top: 30 }}
-        >
-          <MaterialIcons name="arrow-back-ios" size={24} color="white" />
-        </TouchableOpacity>
-      </View>
+          <View
+            style={{
+              justifyContent: "center",
+              paddingTop: 20,
+            }}
+          >
+            <View
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+                padding: 5,
+              }}
+            >
+              <View
+                style={{
+                  backgroundColor: "black",
+                  padding: 15,
+                  borderRadius: 30,
+                }}
+              >
+                <Text
+                  style={{
+                    textAlign: "center",
+                    fontWeight: "bold",
+                    color: "white",
+                  }}
+                >
+                  More like this
+                </Text>
+              </View>
+            </View>
+
+            <MansoryList2 />
+          </View>
+          <TouchableOpacity
+            onPress={navigation.goBack}
+            style={{ position: "absolute", left: 20, top: 30 }}
+          >
+            <MaterialIcons name="arrow-back-ios" size={24} color="white" />
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };

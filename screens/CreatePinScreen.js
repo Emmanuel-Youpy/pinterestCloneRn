@@ -34,7 +34,9 @@ export default function CreatePinScreen() {
     }
   };
 
-  const onSubmit = () => {};
+  const onSubmit = () => {
+    CreatePinScreen();
+  };
   return (
     <View
       style={{
@@ -85,7 +87,7 @@ export default function CreatePinScreen() {
           >
             <TouchableOpacity
               // onPress={onSubmit}
-              onPress={pickImage}
+              onPress={onSubmit}
               // {() => navigation.navigate("Home")}
             >
               <Text style={{ color: "white", fontWeight: "bold" }}>Submit</Text>

@@ -5,6 +5,7 @@ import {
   Dimensions,
   ScrollView,
   Image,
+  TextInput,
 } from "react-native";
 import React from "react";
 import searchDummy from "../constants/searchDummy";
@@ -15,6 +16,8 @@ import Walkthrough4 from "./walkthroughList/Walkthrough4";
 import Walkthrough5 from "./walkthroughList/Walkthrough5";
 import CreatorsCard from "../components/CreatorsCard";
 import PopularPins from "../components/PopularPins";
+import { Octicons } from "@expo/vector-icons";
+import { Fontisto } from "@expo/vector-icons";
 
 const SearchScreen = ({ navigation }) => {
   const scrollX = React.useRef(new Animated.Value(0)).current;
@@ -93,47 +96,84 @@ const SearchScreen = ({ navigation }) => {
           )}
           renderItem={({ item, index }) => {
             return (
-              <View style={{ width: width, justifyContent: "center" }}>
-                {/* walkthrough images */}
-                <View style={{ justifyContent: "center" }}>
-                  {index === 0 && <Walkthrough1 />}
-                  {index == 1 && <Walkthrough2 />}
-                  {index == 2 && <Walkthrough3 />}
-                  {index == 3 && <Walkthrough4 />}
-                  {index == 4 && <Walkthrough5 />}
-                </View>
-                {/* Title and Description */}
-                <View
-                  style={{
-                    //   height: height * 0.35,
-                    position: "absolute",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    paddingHorizontal: 24,
-                    top: 90,
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    //   backgroundColor: "black",
-                    marginTop: -80,
-                  }}
-                >
-                  <Text style={{ color: "white", textAlign: "center" }}>
-                    {item.title}
-                  </Text>
-                  <Text
+              <>
+                <View style={{ width: width, justifyContent: "center" }}>
+                  {/* walkthrough images */}
+                  <View style={{ justifyContent: "center" }}>
+                    {index === 0 && <Walkthrough1 />}
+                    {index == 1 && <Walkthrough2 />}
+                    {index == 2 && <Walkthrough3 />}
+                    {index == 3 && <Walkthrough4 />}
+                    {index == 4 && <Walkthrough5 />}
+                  </View>
+
+                  {/* Title and Description */}
+                  <View
                     style={{
-                      marginTop: 10,
-                      textAlign: "center",
-                      color: "white",
-                      fontSize: 20,
-                      fontWeight: "bold",
+                      //   height: height * 0.35,
+                      position: "absolute",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      paddingHorizontal: 24,
+                      top: 90,
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      //   backgroundColor: "black",
+                      marginTop: -80,
                     }}
                   >
-                    {item.desc}
+                    <Text style={{ color: "white", textAlign: "center" }}>
+                      {item.title}
+                    </Text>
+                    <Text
+                      style={{
+                        marginTop: 10,
+                        textAlign: "center",
+                        color: "white",
+                        fontSize: 20,
+                        fontWeight: "bold",
+                      }}
+                    >
+                      {item.desc}
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  style={{
+                    position: "absolute",
+                    top: 50,
+                    left: 20,
+                    right: 0,
+                    width: "90%",
+                    backgroundColor: "white",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+
+                    padding: 10,
+                    borderRadius: 30,
+                  }}
+                >
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <Text>
+                      <Octicons name="search" size={18} color="gray" />
+                    </Text>
+                    <TextInput
+                      placeholder="Search"
+                      style={{ paddingHorizontal: 10 }}
+                    />
+                  </View>
+                  <Text>
+                    <Fontisto name="camera" size={18} color="gray" />
                   </Text>
                 </View>
-              </View>
+              </>
             );
           }}
         />

@@ -20,6 +20,7 @@ import { Octicons } from "@expo/vector-icons";
 import { Fontisto } from "@expo/vector-icons";
 
 const SearchScreen = ({ navigation }) => {
+  // const [searchData, setSearchData] = useState(second)
   const scrollX = React.useRef(new Animated.Value(0)).current;
   const { width, height } = Dimensions.get("window");
 

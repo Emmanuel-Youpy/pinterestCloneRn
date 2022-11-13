@@ -12,8 +12,23 @@ import MansoryList from "../components/MansoryList";
 import dummyData from "../constants/dummyData";
 import BottomSheet from "../components/BottomSheet";
 import { Entypo } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
-const ProfileScreen = () => {
+// import { connect } from "react-redux";
+// import { toggleTheme } from "../stores/themeAction";
+
+const ProfileScreen = ({ appTheme, toggleTheme }) => {
+  const navigation = useNavigation();
+
+  // Handler
+
+  // function toggleThemeHandler() {
+  //   if (appTheme?.name == "light") {
+  //     toggleTheme("dark");
+  //   } else {
+  //     toggleTheme("light");
+  //   }
+  // }
   const createOneButtonAlert = () =>
     Alert.alert(" Oops!", "Share option not available", [
       {
@@ -22,11 +37,18 @@ const ProfileScreen = () => {
     ]);
   return (
     <ScrollView style={{ width: "100%" }}>
-      <View style={{ alignItems: "center", marginTop: 10, paddingTop: 20 }}>
+      <View
+        style={{
+          alignItems: "center",
+          marginTop: 10,
+          paddingTop: 20,
+          // backgroundColor: appTheme?.backgroundColor1,
+        }}
+      >
         <View
           style={{ flexDirection: "row", alignSelf: "flex-end", padding: 10 }}
         >
-          <TouchableOpacity onPress={createOneButtonAlert}>
+          <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
             <Entypo
               name="share-alternative"
               size={24}
@@ -49,11 +71,20 @@ const ProfileScreen = () => {
             uri: "https://i.pinimg.com/736x/25/78/61/25786134576ce0344893b33a051160b1.jpg",
           }}
         />
-        <Text style={{ fontSize: 20, fontWeight: "bold", margin: 10 }}>
+        <Text
+          style={{
+            fontSize: 20,
+            fontWeight: "bold",
+            margin: 10,
+            color: appTheme?.textColor,
+          }}
+        >
           {" "}
           Berlin Youpil
         </Text>
-        <Text style={{ color: "#181818" }}>123 followers | 534 following</Text>
+        <Text style={{ color: appTheme?.textColor }}>
+          123 followers | 534 following
+        </Text>
       </View>
 
       <MansoryList dummyData={dummyData} />
@@ -61,4 +92,20 @@ const ProfileScreen = () => {
   );
 };
 
+function mapStateToProps(state) {
+  return {
+    appTheme: state.appTheme,
+    error: state.error,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    toggleTheme: (themeType) => {
+      return dispatch(toggleTheme(themeType));
+    },
+  };
+}
+
+// export default connect(mapStateToProps, mapDispatchToProps)(ProfileScreen);
 export default ProfileScreen;

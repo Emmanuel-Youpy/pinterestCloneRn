@@ -25,7 +25,6 @@ export default function CreatePinScreen() {
       aspect: [4, 3],
       quality: 1,
     });
-    pickImage = "";
 
     // console.log(result);
 
@@ -85,11 +84,7 @@ export default function CreatePinScreen() {
               margin: 10,
             }}
           >
-            <TouchableOpacity
-              // onPress={onSubmit}
-              onPress={onSubmit}
-              // {() => navigation.navigate("Home")}
-            >
+            <TouchableOpacity onPress={onSubmit}>
               <Text style={{ color: "white", fontWeight: "bold" }}>Submit</Text>
             </TouchableOpacity>
           </View>

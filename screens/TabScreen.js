@@ -21,51 +21,49 @@ const TabScreen = () => {
           if (route.name === "Home") {
             iconName = focused ? "home" : "home-outline";
           } else if (route.name === "Search") {
-            iconName = focused
-              ? "ios-add-circle-sharp"
-              : "ios-add-circle-outline";
+            iconName = focused ? "md-search-sharp" : "md-search-outline";
           } else if (route.name === "CreatePin") {
             iconName = focused
               ? "ios-add-circle-sharp"
               : "ios-add-circle-outline";
           } else if (route.name === "Notification") {
             iconName = focused
-              ? "ios-add-circle-sharp"
-              : "ios-add-circle-outline";
+              ? "ios-notifications-sharp"
+              : "ios-notifications-outline";
           } else if (route.name === "Profile") {
             iconName = focused ? "person" : "person-outline";
           }
 
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: "tomato",
+        tabBarActiveTintColor: "black",
         tabBarInactiveTintColor: "gray",
       })}
     >
       <Tab.Screen
         name="Home"
         component={HomeScreen}
-        options={{ headerShown: false }}
+        options={{ headerShown: false, tabBarShowLabel: false }}
       />
       <Tab.Screen
         name="Search"
         component={SearchScreen}
-        options={{ headerShown: false }}
+        options={{ headerShown: false, tabBarShowLabel: false }}
       />
       <Tab.Screen
         name="CreatePin"
         component={CreatePinScreen}
-        options={{ headerShown: false }}
+        options={{ headerShown: false, tabBarShowLabel: false }}
       />
       <Tab.Screen
         name="Notification"
         component={NotificationScreen}
-        options={{ headerShown: false }}
+        options={{ headerShown: false, tabBarShowLabel: false }}
       />
       <Tab.Screen
         name="Profile"
         component={ProfileScreen}
-        options={{ headerShown: false }}
+        options={{ headerShown: false, tabBarShowLabel: false }}
       />
     </Tab.Navigator>
   );

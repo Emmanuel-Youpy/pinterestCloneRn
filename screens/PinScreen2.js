@@ -15,8 +15,14 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import dummyData from "../constants/dummyData";
 import dummyData2 from "../constants/dummyData2";
 import MansoryList from "../components/MansoryList";
+import { useContext } from "react";
+import { ThemeContext } from "../components/ThemeContext";
+import { colors } from "../constants/theme";
 
 const PinScreen2 = ({ navigation }) => {
+  const { theme } = useContext(ThemeContext);
+  let activeColor = colors[theme.mode];
+
   const [ratio, setRatio] = useState(1);
 
   useEffect(() => {
@@ -44,7 +50,7 @@ const PinScreen2 = ({ navigation }) => {
         <StatusBar style="light" />
         <View
           style={{
-            backgroundColor: "white",
+            backgroundColor: activeColor.backgroundColor1,
             height: "100%",
             borderTopRightRadius: 50,
             borderTopLeftRadius: 50,
@@ -80,7 +86,7 @@ const PinScreen2 = ({ navigation }) => {
             >
               <View
                 style={{
-                  backgroundColor: "black",
+                  backgroundColor: activeColor.backgroundColor2,
                   padding: 15,
                   borderRadius: 30,
                 }}
@@ -89,7 +95,7 @@ const PinScreen2 = ({ navigation }) => {
                   style={{
                     textAlign: "center",
                     fontWeight: "bold",
-                    color: "white",
+                    color: activeColor.textColor2,
                   }}
                 >
                   More like this

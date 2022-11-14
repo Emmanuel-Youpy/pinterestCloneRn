@@ -10,8 +10,14 @@ import {
 } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import { useNavigation } from "@react-navigation/native";
+import { colors } from "../constants/theme";
+import { useContext } from "react";
+import { ThemeContext } from "../components/ThemeContext";
 
 export default function CreatePinScreen() {
+  const { theme } = useContext(ThemeContext);
+
+  let activeColor = colors[theme.mode];
   const navigation = useNavigation();
 
   const [image, setImage] = useState(null);
@@ -43,6 +49,7 @@ export default function CreatePinScreen() {
         alignItems: "center",
         justifyContent: "center",
         padding: 10,
+        backgroundColor: activeColor.backgroundColor1,
       }}
     >
       <TouchableOpacity
@@ -52,9 +59,16 @@ export default function CreatePinScreen() {
           padding: 15,
           borderRadius: 30,
           margin: 10,
+          backgroundColor: activeColor.backgroundColor2,
         }}
       >
-        <Text style={{ color: "white", fontWeight: "bold" }}>
+        <Text
+          style={{
+            color: "white",
+            fontWeight: "bold",
+            color: activeColor.textColor2,
+          }}
+        >
           Create your pin
         </Text>
       </TouchableOpacity>

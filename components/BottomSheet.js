@@ -3,8 +3,13 @@ import { View, Button, Text, TouchableOpacity, Alert } from "react-native";
 import RBSheet from "react-native-raw-bottom-sheet";
 import { Entypo } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { colors } from "../constants/theme";
+import { useContext } from "react";
+import { ThemeContext } from "../components/ThemeContext";
 
 export default function BottomSheet() {
+  const { theme } = useContext(ThemeContext);
+  let activeColor = colors[theme.mode];
   const navigation = useNavigation();
 
   const createTwoButtonAlert = () =>
@@ -33,18 +38,27 @@ export default function BottomSheet() {
         style={{
           alignContent: "center",
           //   justifyContent: "center",
-          backgroundColor: "lightgray",
+          backgroundColor: activeColor.backgroundColor1,
           padding: 20,
           height: "100%",
         }}
       >
-        <Text style={{ paddingBottom: 10, fontSize: 15 }}>Profile</Text>
+        <Text
+          style={{
+            paddingBottom: 10,
+            fontSize: 15,
+            color: activeColor.textColor,
+          }}
+        >
+          Profile
+        </Text>
         <Text
           style={{
             paddingBottom: 10,
             fontSize: 20,
             marginBottom: 10,
             fontWeight: "bold",
+            color: activeColor.textColor,
           }}
           onPress={createTwoButtonAlert}
         >
@@ -57,6 +71,7 @@ export default function BottomSheet() {
             fontSize: 20,
             marginBottom: 10,
             fontWeight: "bold",
+            color: activeColor.textColor,
           }}
           onPress={createOneButtonAlert}
         >
@@ -68,6 +83,7 @@ export default function BottomSheet() {
             fontSize: 20,
             marginBottom: 10,
             fontWeight: "bold",
+            color: activeColor.textColor,
           }}
           onPress={() => navigation.navigate("SignIn")}
         >
@@ -83,7 +99,6 @@ export default function BottomSheet() {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        // backgroundColor: "#000",
       }}
     >
       <TouchableOpacity onPress={() => refRBSheet.current.open()}>
@@ -91,7 +106,7 @@ export default function BottomSheet() {
           <Entypo
             name="dots-three-horizontal"
             size={24}
-            color="black"
+            color={activeColor.textColor}
             style={{ padding: 10 }}
           />
         </View>
@@ -107,7 +122,7 @@ export default function BottomSheet() {
             backgroundColor: "transparent",
           },
           draggableIcon: {
-            backgroundColor: "#000",
+            backgroundColor: "gray",
           },
         }}
       >

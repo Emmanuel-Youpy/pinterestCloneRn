@@ -4,13 +4,21 @@ import Pins from "../components/Pins";
 import dummyData from "../constants/dummyData";
 import MansoryList from "../components/MansoryList";
 import { useUserData } from "@nhost/react";
+import { colors } from "../constants/theme";
+import { useContext } from "react";
+import { ThemeContext } from "../components/ThemeContext";
 
 const HomeScreen = () => {
   const user = useUserData();
+  // const theme = { mode: "dark" };
+  const { theme } = useContext(ThemeContext);
+  let activeColor = colors[theme.mode];
   // console.log(user);
 
   return (
-    <View style={{ paddingTop: 40 }}>
+    <View
+      style={{ paddingTop: 40, backgroundColor: activeColor.backgroundColor1 }}
+    >
       <View
         style={{
           justifyContent: "center",
@@ -19,10 +27,18 @@ const HomeScreen = () => {
         }}
       >
         <View
-          style={{ backgroundColor: "black", padding: 15, borderRadius: 30 }}
+          style={{
+            backgroundColor: activeColor.backgroundColor2,
+            padding: 15,
+            borderRadius: 30,
+          }}
         >
           <Text
-            style={{ textAlign: "center", fontWeight: "bold", color: "white" }}
+            style={{
+              textAlign: "center",
+              fontWeight: "bold",
+              color: activeColor.textColor2,
+            }}
           >
             For you
           </Text>

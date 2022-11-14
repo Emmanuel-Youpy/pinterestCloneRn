@@ -1,9 +1,20 @@
 import { View, Text, Image } from "react-native";
 import React from "react";
+import { colors } from "../constants/theme";
+import { useContext } from "react";
+import { ThemeContext } from "../components/ThemeContext";
 
 const NotificationScreen = () => {
+  const { theme } = useContext(ThemeContext);
+  let activeColor = colors[theme.mode];
   return (
-    <View style={{ paddingTop: 40 }}>
+    <View
+      style={{
+        paddingTop: 40,
+        backgroundColor: activeColor.backgroundColor1,
+        height: "100%",
+      }}
+    >
       <View
         style={{
           justifyContent: "center",
@@ -12,10 +23,19 @@ const NotificationScreen = () => {
         }}
       >
         <View
-          style={{ backgroundColor: "black", padding: 15, borderRadius: 30 }}
+          style={{
+            backgroundColor: "black",
+            padding: 15,
+            borderRadius: 30,
+            backgroundColor: activeColor.backgroundColor2,
+          }}
         >
           <Text
-            style={{ textAlign: "center", fontWeight: "bold", color: "white" }}
+            style={{
+              textAlign: "center",
+              fontWeight: "bold",
+              color: activeColor.textColor2,
+            }}
           >
             Notifications
           </Text>

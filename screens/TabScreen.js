@@ -8,13 +8,19 @@ import CreatePinScreen from "./CreatePinScreen";
 import NotificationScreen from "./NotificationScreen";
 import SearchScreen from "./SearchScreen";
 import CreatorProfileScreen from "./CreatorProfileScreen";
+import { colors } from "../constants/theme";
+import { useContext } from "react";
+import { ThemeContext } from "../components/ThemeContext";
 
 const Tab = createBottomTabNavigator();
 
 const TabScreen = () => {
+  const { theme } = useContext(ThemeContext);
+  let activeColor = colors[theme.mode];
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
+        tabBarStyle: { backgroundColor: activeColor.backgroundColor1 },
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
@@ -36,7 +42,7 @@ const TabScreen = () => {
 
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: "black",
+        tabBarActiveTintColor: activeColor.tint,
         tabBarInactiveTintColor: "gray",
       })}
     >

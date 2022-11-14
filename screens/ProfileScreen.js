@@ -13,11 +13,16 @@ import dummyData from "../constants/dummyData";
 import BottomSheet from "../components/BottomSheet";
 import { Entypo } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { colors } from "../constants/theme";
+import { useContext } from "react";
+import { ThemeContext } from "../components/ThemeContext";
 
 // import { connect } from "react-redux";
 // import { toggleTheme } from "../stores/themeAction";
 
 const ProfileScreen = ({ appTheme, toggleTheme }) => {
+  const { theme } = useContext(ThemeContext);
+  let activeColor = colors[theme.mode];
   const navigation = useNavigation();
 
   // Handler
@@ -36,7 +41,9 @@ const ProfileScreen = ({ appTheme, toggleTheme }) => {
       },
     ]);
   return (
-    <ScrollView style={{ width: "100%" }}>
+    <ScrollView
+      style={{ width: "100%", backgroundColor: activeColor.backgroundColor1 }}
+    >
       <View
         style={{
           alignItems: "center",
@@ -52,7 +59,7 @@ const ProfileScreen = ({ appTheme, toggleTheme }) => {
             <Entypo
               name="share-alternative"
               size={24}
-              color="black"
+              color={activeColor.textColor}
               style={{ padding: 10 }}
             />
           </TouchableOpacity>
@@ -76,13 +83,13 @@ const ProfileScreen = ({ appTheme, toggleTheme }) => {
             fontSize: 20,
             fontWeight: "bold",
             margin: 10,
-            color: appTheme?.textColor,
+            color: activeColor.textColor,
           }}
         >
           {" "}
           Berlin Youpil
         </Text>
-        <Text style={{ color: appTheme?.textColor }}>
+        <Text style={{ color: activeColor.textColor }}>
           123 followers | 534 following
         </Text>
       </View>
@@ -92,20 +99,20 @@ const ProfileScreen = ({ appTheme, toggleTheme }) => {
   );
 };
 
-function mapStateToProps(state) {
-  return {
-    appTheme: state.appTheme,
-    error: state.error,
-  };
-}
+// function mapStateToProps(state) {
+//   return {
+//     appTheme: state.appTheme,
+//     error: state.error,
+//   };
+// }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    toggleTheme: (themeType) => {
-      return dispatch(toggleTheme(themeType));
-    },
-  };
-}
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     toggleTheme: (themeType) => {
+//       return dispatch(toggleTheme(themeType));
+//     },
+//   };
+// }
 
 // export default connect(mapStateToProps, mapDispatchToProps)(ProfileScreen);
 export default ProfileScreen;

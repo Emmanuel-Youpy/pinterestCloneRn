@@ -2,8 +2,13 @@ import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import React, { useEffect, useState } from "react";
 import { Feather } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { colors } from "../constants/theme";
+import { useContext } from "react";
+import { ThemeContext } from "../components/ThemeContext";
 
 const Pins2 = (props) => {
+  const { theme } = useContext(ThemeContext);
+  let activeColor = colors[theme.mode];
   const { image, title, id } = props.pin;
   const [ratio, setRatio] = useState(1);
   const navigation = useNavigation();
@@ -53,7 +58,7 @@ const Pins2 = (props) => {
           lineHeight: 22,
           fontWeight: "600",
           margin: 10,
-          color: "#181818",
+          color: activeColor.textColor,
         }}
       >
         {title}

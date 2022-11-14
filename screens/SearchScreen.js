@@ -18,8 +18,15 @@ import CreatorsCard from "../components/CreatorsCard";
 import PopularPins from "../components/PopularPins";
 import { Octicons } from "@expo/vector-icons";
 import { Fontisto } from "@expo/vector-icons";
+import { colors } from "../constants/theme";
+import { useContext } from "react";
+import { ThemeContext } from "../components/ThemeContext";
 
 const SearchScreen = ({ navigation }) => {
+  // const theme = { mode: "dark" };
+  const { theme } = useContext(ThemeContext);
+
+  let activeColor = colors[theme.mode];
   // const [searchData, setSearchData] = useState(second)
   const scrollX = React.useRef(new Animated.Value(0)).current;
   const { width, height } = Dimensions.get("window");
@@ -79,8 +86,11 @@ const SearchScreen = ({ navigation }) => {
   }
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false}>
-      <View style={{ justifyContent: "center" }}>
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      style={{ backgroundColor: activeColor.backgroundColor1 }}
+    >
+      <View style={{ justifyContent: "center", backgroundColor: "red" }}>
         <Animated.FlatList
           data={searchDummy}
           keyExtractor={(item) => item.id}
@@ -194,6 +204,7 @@ const SearchScreen = ({ navigation }) => {
             fontSize: 18,
             fontWeight: "600",
             padding: 10,
+            color: activeColor.textColor,
           }}
         >
           Ideas from creators
@@ -235,6 +246,7 @@ const SearchScreen = ({ navigation }) => {
           paddingBottom: 10,
           fontSize: 18,
           fontWeight: "600",
+          color: activeColor.textColor,
         }}
       >
         Popular on Pinterest

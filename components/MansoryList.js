@@ -2,8 +2,11 @@ import { View, Text, ScrollView, useWindowDimensions } from "react-native";
 import React, { useState } from "react";
 import dummyData from "../constants/dummyData";
 import Pins from "./Pins";
+import { colors } from "../constants/theme";
 
 const MansoryList = ({ dummyData }) => {
+  const theme = { mode: "dark" };
+  let activeColor = colors[theme.mode];
   //   const [numColumns, setNumColumns] = useState(2);
 
   //   const numColumns = width < 500 ? 2 : 3;

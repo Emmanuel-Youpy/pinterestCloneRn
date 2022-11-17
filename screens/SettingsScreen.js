@@ -1,12 +1,18 @@
-import { View, Text, Switch } from "react-native";
+import { View, Text, Switch, TouchableOpacity } from "react-native";
 import React from "react";
 import SettingComp from "../components/SettingComp";
 import { useState } from "react";
 import { colors } from "../constants/theme";
 import { useContext } from "react";
 import { ThemeContext } from "../components/ThemeContext";
+import { MaterialIcons } from '@expo/vector-icons';
+import SettingComp2 from "../components/SettingComp2";
+import { useNavigation } from "@react-navigation/native";
+
 
 const SettingsScreen = () => {
+  const navigation = useNavigation();
+
   const { theme , updateTheme} = useContext(ThemeContext);
   let activeColor = colors[theme.mode];
   const [isActive, setIsActive] = useState(theme.mode ==='dark');
@@ -23,14 +29,20 @@ const SettingsScreen = () => {
         width: "100%",
         paddingHorizontal: 20,
       }}
+
+
     >
-      <View style={{ padding: 10 }}>
+      <View style={{ paddingTop: 10 ,flexDirection:'row', alignItems:'center' }}>
+        <TouchableOpacity onPress={()=> navigation.goBack()}>
+        <Text style={{ color: "white",  fontWeight: "bold" , paddingRight:10 ,  }} >
+        <MaterialIcons name="keyboard-arrow-left" size={34} color={activeColor.textColor} />
+        </Text></TouchableOpacity>
         <Text style={{ color: "white", fontSize: 30, fontWeight: "bold" , color: activeColor.textColor  }}>
           Settings
         </Text>
       </View>
       <Text
-        style={{ color: "white", fontSize: 20, fontWeight: "bold", left: 10 , color: activeColor.textColor }}
+        style={{ color: "white", fontSize: 20, fontWeight: "bold", left: 10 , color: activeColor.textColor , paddingTop:20}}
       >
         User
       </Text>
@@ -40,7 +52,8 @@ const SettingsScreen = () => {
           alignItems: "center",
         }}
       >
-        <SettingComp label="Name" comp="Youpil" />
+        <SettingComp2 name="Name" label="Youpil" />
+        <SettingComp2 name="Joined" label="07/12/22" />
       </View>
       <Text
         style={{
@@ -59,10 +72,10 @@ const SettingsScreen = () => {
           style={{
             flexDirection: "row",
             justifyContent: "space-between",
-            width: "90%",
-            backgroundColor: activeColor.backgroundColor3,
+            width: "95%",
+            // backgroundColor: activeColor.backgroundColor3,
             padding: 20,
-            borderRadius: 30,
+            borderRadius: 20,
             marginTop: 10,
             borderColor:'lightgray', 
             borderWidth:0.5

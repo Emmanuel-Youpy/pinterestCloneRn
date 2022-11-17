@@ -14,12 +14,12 @@ const SettingComp = ({ label, isActive, icon, onPress }) => {
       style={{
         flexDirection: "row",
         justifyContent: "space-between",
-        width: "90%",
-        backgroundColor: "white",
+        width: "95%",
+        // backgroundColor: "white",
         padding: 20,
-        borderRadius: 30,
+        borderRadius: 20,
         marginTop: 5,
-        backgroundColor: activeColor.backgroundColor3,
+        // backgroundColor: activeColor.backgroundColor3,
         borderColor: "lightgrey",
         borderWidth: 0.5,
       }}

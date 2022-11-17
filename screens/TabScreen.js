@@ -29,9 +29,7 @@ const TabScreen = () => {
           } else if (route.name === "Search") {
             iconName = focused ? "md-search-sharp" : "md-search-outline";
           } else if (route.name === "CreatePin") {
-            iconName = focused
-              ? "ios-add-circle-sharp"
-              : "ios-add-circle-outline";
+            iconName = focused ? "md-add-sharp" : "md-add-outline";
           } else if (route.name === "Notification") {
             iconName = focused
               ? "ios-notifications-sharp"

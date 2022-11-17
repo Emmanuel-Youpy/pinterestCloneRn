@@ -17,6 +17,7 @@ import MansoryList2 from "../components/MansoryList2";
 import { colors } from "../constants/theme";
 import { useContext } from "react";
 import { ThemeContext } from "../components/ThemeContext";
+import dummyData2 from "../constants/dummyData2";
 
 const PinScreen = ({ navigation }) => {
   const { theme } = useContext(ThemeContext);
@@ -102,7 +103,7 @@ const PinScreen = ({ navigation }) => {
               </View>
             </View>
 
-            <MansoryList2 />
+            <MansoryList2 dummyData={dummyData2} />
           </View>
           <TouchableOpacity
             onPress={navigation.goBack}

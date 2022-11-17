@@ -103,7 +103,7 @@ const PinScreen2 = ({ navigation }) => {
               </View>
             </View>
 
-            <MansoryList />
+            <MansoryList dummyData={dummyData} />
           </View>
           <TouchableOpacity
             onPress={navigation.goBack}

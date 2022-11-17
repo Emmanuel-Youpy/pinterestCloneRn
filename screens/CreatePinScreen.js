@@ -7,6 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
   Text,
+  Alert,
 } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import { useNavigation } from "@react-navigation/native";
@@ -42,6 +43,21 @@ export default function CreatePinScreen() {
   const onSubmit = () => {
     CreatePinScreen();
   };
+
+  const createTwoButtonAlert = () =>
+    Alert.alert(
+      "oops! ",
+      "To choose a picture, please give this app access to your photos in phone settings",
+      [
+        {
+          text: "Cancel",
+          style: "cancel",
+        },
+        {
+          text: "OK",
+        },
+      ]
+    );
   return (
     <View
       style={{
@@ -53,7 +69,7 @@ export default function CreatePinScreen() {
       }}
     >
       <TouchableOpacity
-        onPress={pickImage}
+        onPress={createTwoButtonAlert}
         style={{
           backgroundColor: "black",
           padding: 15,

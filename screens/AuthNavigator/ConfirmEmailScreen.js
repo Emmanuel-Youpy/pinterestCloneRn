@@ -12,10 +12,15 @@ import {
 import React, { useState } from "react";
 import CustomInput from "../../components/CustomInput";
 import CustomButton from "../../components/CustomButton";
+import { ThemeContext } from "../../components/ThemeContext";
+import { useContext } from "react";
+import { colors } from "../../constants/theme";
 
 const windowHeight = Dimensions.get("window").height;
 
 const ConfirmEmailScreen = ({ navigation }) => {
+  const { theme } = useContext(ThemeContext);
+  let activeColor = colors[theme.mode];
   const [code, setCode] = useState("");
 
   const btnwarn = () => {
@@ -23,11 +28,14 @@ const ConfirmEmailScreen = ({ navigation }) => {
   };
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false}>
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      style={{ backgroundColor: activeColor.backgroundColor1 }}
+    >
       <View style={{ paddingTop: 40, alignItems: "center", padding: 20 }}>
         <Image
           source={{
-            uri: "https://i.pinimg.com/originals/98/a6/de/98a6de54dc27442a3c8375ab303c6e42.jpg",
+            uri: "https://www.freepnglogos.com/uploads/pinterest-logo-emblem-png-11.png",
           }}
           style={{
             marginTop: 20,
@@ -45,6 +53,11 @@ const ConfirmEmailScreen = ({ navigation }) => {
           </Text>
         </View>
         <View style={{ alignItems: "center", width: "100%" }}>
+          <View style={{ width: "80%" }}>
+            <Text style={{ fontSize: 16, color: "gray", paddingTop: 5 }}>
+              Confirm your email
+            </Text>
+          </View>
           <CustomInput
             placeholder="Enter confirmation code"
             value={code}

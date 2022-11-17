@@ -16,6 +16,7 @@ import { useNavigation } from "@react-navigation/native";
 import { colors } from "../constants/theme";
 import { useContext } from "react";
 import { ThemeContext } from "../components/ThemeContext";
+import { Ionicons } from "@expo/vector-icons";
 
 // import { connect } from "react-redux";
 // import { toggleTheme } from "../stores/themeAction";
@@ -53,11 +54,11 @@ const ProfileScreen = ({ appTheme, toggleTheme }) => {
         }}
       >
         <View
-          style={{ flexDirection: "row", alignSelf: "flex-end", padding: 10 }}
+          style={{ flexDirection: "row", alignSelf: "flex-end", padding: 5 }}
         >
           <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
-            <Entypo
-              name="share-alternative"
+            <Ionicons
+              name="settings"
               size={24}
               color={activeColor.textColor}
               style={{ padding: 10 }}

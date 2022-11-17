@@ -10,10 +10,8 @@ import { ThemeContext } from "../components/ThemeContext";
 
 const HomeScreen = () => {
   const user = useUserData();
-  // const theme = { mode: "dark" };
   const { theme } = useContext(ThemeContext);
   let activeColor = colors[theme.mode];
-  // console.log(user);
 
   return (
     <View

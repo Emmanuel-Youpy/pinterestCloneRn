@@ -12,10 +12,15 @@ import {
 import React, { useState } from "react";
 import CustomInput from "../../components/CustomInput";
 import CustomButton from "../../components/CustomButton";
+import { ThemeContext } from "../../components/ThemeContext";
+import { useContext } from "react";
+import { colors } from "../../constants/theme";
 
 const windowHeight = Dimensions.get("window").height;
 
 const ResetPasswordScreen = ({ navigation }) => {
+  const { theme } = useContext(ThemeContext);
+  let activeColor = colors[theme.mode];
   const [code, setCode] = useState("");
   const [newPassword, SetNewPassword] = useState("");
 
@@ -24,11 +29,21 @@ const ResetPasswordScreen = ({ navigation }) => {
   };
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false}>
-      <View style={{ paddingTop: 40, alignItems: "center", padding: 20 }}>
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      style={{ backgroundColor: activeColor.backgroundColor1 }}
+    >
+      <View
+        style={{
+          paddingTop: 40,
+          alignItems: "center",
+          padding: 20,
+          paddingTop: 40,
+        }}
+      >
         <Image
           source={{
-            uri: "https://i.pinimg.com/originals/98/a6/de/98a6de54dc27442a3c8375ab303c6e42.jpg",
+            uri: "https://www.freepnglogos.com/uploads/pinterest-logo-emblem-png-11.png",
           }}
           style={{
             marginTop: 20,
@@ -46,7 +61,17 @@ const ResetPasswordScreen = ({ navigation }) => {
           </Text>
         </View>
         <View style={{ alignItems: "center", width: "100%" }}>
+          <View style={{ width: "80%" }}>
+            <Text style={{ fontSize: 16, color: "gray", paddingTop: 5 }}>
+              Code
+            </Text>
+          </View>
           <CustomInput placeholder="Code" value={code} setValue={setCode} />
+          <View style={{ width: "80%", paddingTop: 10 }}>
+            <Text style={{ fontSize: 16, color: "gray", paddingTop: 5 }}>
+              Enter your new password
+            </Text>
+          </View>
           <CustomInput
             placeholder="Enter your new password"
             value={newPassword}

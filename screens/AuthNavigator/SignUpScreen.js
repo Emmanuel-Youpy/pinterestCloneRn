@@ -12,10 +12,16 @@ import {
 import React, { useState } from "react";
 import CustomInput from "../../components/CustomInput";
 import CustomButton from "../../components/CustomButton";
+import { ThemeContext } from "../../components/ThemeContext";
+
+import { useContext } from "react";
+import { colors } from "../../constants/theme";
 
 const windowHeight = Dimensions.get("window").height;
 
 const SignInScreen = ({ navigation }) => {
+  const { theme } = useContext(ThemeContext);
+  let activeColor = colors[theme.mode];
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [age, setAge] = useState();
@@ -25,11 +31,14 @@ const SignInScreen = ({ navigation }) => {
   };
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false}>
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      style={{ backgroundColor: activeColor.backgroundColor1 }}
+    >
       <View style={{ paddingTop: 90, alignItems: "center" }}>
         <Image
           source={{
-            uri: "https://i.pinimg.com/originals/98/a6/de/98a6de54dc27442a3c8375ab303c6e42.jpg",
+            uri: "https://www.freepnglogos.com/uploads/pinterest-logo-emblem-png-11.png",
           }}
           style={{
             marginTop: 20,
@@ -46,13 +55,26 @@ const SignInScreen = ({ navigation }) => {
           <Text style={{ textAlign: "center" }}>Find new ideas to try</Text>
         </View>
         <View style={{ alignItems: "center", width: "100%" }}>
+          <View style={{ width: "80%" }}>
+            <Text style={{ fontSize: 16, color: "gray" }}>Email</Text>
+          </View>
           <CustomInput placeholder="Email" value={email} setValue={setEmail} />
+          <View style={{ width: "80%", paddingTop: 5 }}>
+            <Text style={{ fontSize: 16, color: "gray", paddingTop: 5 }}>
+              Password
+            </Text>
+          </View>
           <CustomInput
             placeholder="Create a password"
             value={password}
             setValue={setPassword}
             secureTextEntry={true}
           />
+          <View style={{ width: "80%", paddingTop: 5 }}>
+            <Text style={{ fontSize: 16, color: "gray", paddingTop: 5 }}>
+              Age
+            </Text>
+          </View>
           <CustomInput placeholder="Age" value={age} setValue={setAge} />
           <CustomButton
             text="Continue"
@@ -76,7 +98,7 @@ const SignInScreen = ({ navigation }) => {
             bgColor="pink"
           />
           <View style={{ width: "80%", alignItems: "center" }}>
-            <Text>
+            <Text style={{ color: activeColor.textColor }}>
               <Text style={{ color: "gray", textAlign: "center" }}>
                 By Continuing, you agree to Pinterest's{" "}
               </Text>
@@ -89,14 +111,20 @@ const SignInScreen = ({ navigation }) => {
                 alignItems: "center",
               }}
             >
-              <Text style={{ fontWeight: "500", textAlign: "center" }}>
+              <Text
+                style={{
+                  fontWeight: "500",
+                  textAlign: "center",
+                  color: activeColor.textColor,
+                }}
+              >
                 Already a menber?
               </Text>
               <TouchableOpacity
                 onPress={() => navigation.navigate("SignIn")}
                 style={{ textAlign: "center" }}
               >
-                <Text> Log In</Text>
+                <Text style={{ color: activeColor.textColor }}> Log In</Text>
               </TouchableOpacity>
             </View>
           </View>
